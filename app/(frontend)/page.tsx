@@ -16,7 +16,7 @@ export default async function Home({
   const searchTerm =
     typeof searchParams.search === "string" ? searchParams.search : "";
 
-  const posts: postList[] = await getPosts(searchTerm);
+  const posts: postList[] = await getPosts();
 
   return (
     <div className="p-4 text-gray-600 min-h-screen">
