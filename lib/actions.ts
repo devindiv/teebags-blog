@@ -1,9 +1,8 @@
 import { cache } from "react";
 import { client } from "./sanity";
 
-export async function getPosts(searchTerm: string) {
-  const query = `*[_type == 'post' && (
-    title match $searchTerm || shortDescription match $searchTerm)] | order(_createdAt desc) {
+export async function getPosts() {
+  const query = `*[_type == 'post'] | order(_createdAt desc) {
         _id,
         title,
         "slug": slug.current,
@@ -13,10 +12,8 @@ export async function getPosts(searchTerm: string) {
         content,
     }`;
 
-  const params = { searchTerm: `${searchTerm}*` };
-
   try {
-    const data = await client.fetch(query, params);
+    const data = await client.fetch(query);
     return data;
   } catch (error) {
     return [];
