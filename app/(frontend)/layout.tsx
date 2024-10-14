@@ -4,6 +4,7 @@ import { roboto } from "@/components/ui/fonts";
 import Container from "@/components/ui/container";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { Analytics } from "@vercel/analytics/react";
 
 export const metadata: Metadata = {
   title: "Teebags: Best Gift Ideas for any ocassion",
@@ -23,6 +24,7 @@ export default function RootLayout({
           <Container> {children}</Container>
         </main>
         <Footer />
+        <Analytics />
       </body>
     </html>
   );
